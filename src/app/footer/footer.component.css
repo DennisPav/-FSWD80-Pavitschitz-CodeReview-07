@@ -1,0 +1,7 @@
+.fa:hover {
+    opacity: 0.7;
+    text-decoration: none;
+}
+.fa{
+    width: 50px;
+}

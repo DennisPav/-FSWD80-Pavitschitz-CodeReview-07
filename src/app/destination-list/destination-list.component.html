@@ -1,0 +1,35 @@
+<form class="form-inline mb-5">
+    <input name="searchInput" class="form-control" placeholder="Search" #searchInput="ngModel" [(ngModel)]="searchText" style="width: 80%;">
+    <button class="btn btn-outline-primary" (click)="searchText=''">x</button>
+</form>
+<div class="row border">   
+       <ng-container *ngFor="let destination of destinationArray">
+        <div class="col-md-4">
+            <div class="card mt-3" *ngIf="filterCondition(destination)">
+                <h5 class="card-header">{{destination.location}}</h5>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-6 p-2">
+                            <h5 class="card-title ">Country: <br>{{destination.country}}</h5>
+                            <h5 class="card-title">Type: <br>{{destination.type}}</h5>
+                            <h5 class="card-title">Lodging: <br>{{destination.lodging}}</h5>
+                            <h5 class="card-title">Price: <br>{{destination.price}} €</h5>
+                            <h5 class="card-title">Nights: <br>{{destination.night}}</h5>                            
+                        </div>
+                        <div class="col-5 ">
+                            <p class="card-text"><img src="{{destination.image}}" class="img-fluid"></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <h5 class="card-title">Description: <br>{{destination.desc}}</h5>
+                    </div>
+                    <button class="btn btn-info" (click)="destinationService.populateForm(destination)">Edit</button>
+
+                    <button class="btn btn-danger" (click)="onDelete(destination.$key)">Delete</button>
+                </div>
+            </div>
+        </div>     
+    </ng-container>   
+</div>
+
+<div class="alert alert-danger" *ngIf="showDeletedMessage">Deleted successfully</div>

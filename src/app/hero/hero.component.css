@@ -1,0 +1,18 @@
+#hero{
+    background-image: url('../../assets/travel-hero.jpg');
+    height: 1000px;
+    min-height: 1000px!important;
+    background-position: right;
+    background-size: cover, 100%;
+    background-repeat: no-repeat;
+    
+    
+}
+#hero-h{
+    font-size: 4rem!important;
+    
+}
+#hero-p{
+    font-size: 2rem!important;
+    
+}
